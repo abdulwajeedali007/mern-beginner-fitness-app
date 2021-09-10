@@ -40,7 +40,7 @@ function Index() {
     console.log(exercise);
 
     axios
-      .post("http://localhost:5000/exercises/add", exercise)
+      .post(`${process.env.REACT_APP_URL}/exercises/add`, exercise)
       .then((res) => console.log(res.data));
 
     window.location = "/";
@@ -48,7 +48,7 @@ function Index() {
 
   // Getting users from database
   useEffect(() => {
-    axios.get("http://localhost:5000/users").then((res) => {
+    axios.get(`${process.env.REACT_APP_URL}/users`).then((res) => {
       // console.log(res.data.allusers);
       const allusers = res.data.allusers.map((user) => user.username);
       setUsers(["Select user name", ...allusers]);

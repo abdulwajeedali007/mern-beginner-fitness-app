@@ -8,7 +8,7 @@ function Index() {
   // Fetching data
   useEffect(() => {
     axios
-      .get("http://localhost:5000/exercises/")
+      .get(`${process.env.REACT_APP_URL}/exercises/`)
       .then((res) => {
         if (res.data.length > 0) {
           setExercises(res.data);
@@ -20,7 +20,7 @@ function Index() {
   // Delete exercise
   const deleteExercise = (id) => {
     axios
-      .delete(`http://localhost:5000/exercises/${id}`)
+      .delete(`${process.env.REACT_APP_URL}/exercises/${id}`)
       .then((res) => console.log(res.data))
       .catch((error) => {
         console.log(error.message);

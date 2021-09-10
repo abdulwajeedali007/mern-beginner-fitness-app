@@ -12,7 +12,7 @@ function Index() {
     e.preventDefault();
     const userone = { username: user };
     axios
-      .post("http://localhost:5000/users/add", userone)
+      .post(`${process.env.REACT_APP_URL}/users/add`, userone)
       .then((res) => console.log(res.data));
     setUser("");
   };
