@@ -8,7 +8,7 @@ function Index() {
   // Fetching data
   useEffect(() => {
     axios
-      .get(`/exercises/`)
+      .get(`https://mern-beginner-fitness-app.herokuapp.com/exercises/`)
       .then((res) => {
         if (res.data.length > 0) {
           setExercises(res.data);
@@ -20,7 +20,7 @@ function Index() {
   // Delete exercise
   const deleteExercise = (id) => {
     axios
-      .delete(`/exercises/${id}`)
+      .delete(`https://mern-beginner-fitness-app.herokuapp.com/exercises/${id}`)
       .then((res) => console.log(res.data))
       .catch((error) => {
         console.log(error.message);

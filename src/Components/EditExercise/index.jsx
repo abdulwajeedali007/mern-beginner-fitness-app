@@ -39,7 +39,10 @@ function Index() {
       date,
     };
     axios
-      .post(`/exercises/update/${id}`, exercise)
+      .post(
+        `https://mern-beginner-fitness-app.herokuapp.com/exercises/update/${id}`,
+        exercise
+      )
       .then((res) => console.log(res.data))
       .catch((error) => {
         console.log(error.message);
@@ -53,21 +56,25 @@ function Index() {
     // getting data of input after clicking on edit which is existing one
     // adding that to input elements of edit component
 
-    axios.get(`/exercises/${id}`).then((res) => {
-      setUsername(res.data.username);
-      setDescription(res.data.description);
-      setDuration(res.data.duration);
-      setDate(new Date(res.data.date));
-    });
+    axios
+      .get(`https://mern-beginner-fitness-app.herokuapp.com/exercises/${id}`)
+      .then((res) => {
+        setUsername(res.data.username);
+        setDescription(res.data.description);
+        setDuration(res.data.duration);
+        setDate(new Date(res.data.date));
+      });
 
     // this is accessing users for setting in user form select area;
-    axios.get(`/users`).then((res) => {
-      // console.log(res.data.allusers);
-      if (res.data.allusers.length > 0) {
-        const allusers = res.data.allusers.map((user) => user.username);
-        setUsers(allusers);
-      }
-    });
+    axios
+      .get(`https://mern-beginner-fitness-app.herokuapp.com/users`)
+      .then((res) => {
+        // console.log(res.data.allusers);
+        if (res.data.allusers.length > 0) {
+          const allusers = res.data.allusers.map((user) => user.username);
+          setUsers(allusers);
+        }
+      });
   }, [id]);
 
   return (

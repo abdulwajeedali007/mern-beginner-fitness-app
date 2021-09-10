@@ -39,18 +39,25 @@ function Index() {
 
     console.log(exercise);
     // ${process.env.REACT_APP_URL}
-    axios.post(`/exercises/add`, exercise).then((res) => console.log(res.data));
+    axios
+      .post(
+        `https://mern-beginner-fitness-app.herokuapp.com/exercises/add`,
+        exercise
+      )
+      .then((res) => console.log(res.data));
 
     window.location = "/";
   };
 
   // Getting users from database
   useEffect(() => {
-    axios.get(`/users`).then((res) => {
-      // console.log(res.data.allusers);
-      const allusers = res.data.allusers.map((user) => user.username);
-      setUsers(["Select user name", ...allusers]);
-    });
+    axios
+      .get(`https://mern-beginner-fitness-app.herokuapp.com/users`)
+      .then((res) => {
+        // console.log(res.data.allusers);
+        const allusers = res.data.allusers.map((user) => user.username);
+        setUsers(["Select user name", ...allusers]);
+      });
   }, []);
 
   return (

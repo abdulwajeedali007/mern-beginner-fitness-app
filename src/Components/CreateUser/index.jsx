@@ -11,7 +11,12 @@ function Index() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const userone = { username: user };
-    axios.post(`/users/add`, userone).then((res) => console.log(res.data));
+    axios
+      .post(
+        `https://mern-beginner-fitness-app.herokuapp.com/users/add`,
+        userone
+      )
+      .then((res) => console.log(res.data));
     setUser("");
   };
 
