@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./editexercise.scss";
 function Index() {
   const [username, setUsername] = useState("");
@@ -14,8 +14,6 @@ function Index() {
   const [users, setUsers] = useState([]);
 
   // const [selectuser, setSelectuser] = useState("Select user name");
-
-  let history = useHistory();
 
   const handleUser = (e) => {
     // console.log(e.target.value);
@@ -41,7 +39,7 @@ function Index() {
       date,
     };
     axios
-      .post(`http://localhost:5000/exercises/update/${id}`, exercise)
+      .post(`/exercises/update/${id}`, exercise)
       .then((res) => console.log(res.data))
       .catch((error) => {
         console.log(error.message);
@@ -55,7 +53,7 @@ function Index() {
     // getting data of input after clicking on edit which is existing one
     // adding that to input elements of edit component
 
-    axios.get(`${process.env.REACT_APP_URL}/exercises/${id}`).then((res) => {
+    axios.get(`/exercises/${id}`).then((res) => {
       setUsername(res.data.username);
       setDescription(res.data.description);
       setDuration(res.data.duration);
@@ -63,7 +61,7 @@ function Index() {
     });
 
     // this is accessing users for setting in user form select area;
-    axios.get(`${process.env.REACT_APP_URL}/users`).then((res) => {
+    axios.get(`/users`).then((res) => {
       // console.log(res.data.allusers);
       if (res.data.allusers.length > 0) {
         const allusers = res.data.allusers.map((user) => user.username);

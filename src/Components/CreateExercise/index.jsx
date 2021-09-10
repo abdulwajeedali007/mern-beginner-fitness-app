@@ -38,17 +38,15 @@ function Index() {
     };
 
     console.log(exercise);
-
-    axios
-      .post(`${process.env.REACT_APP_URL}/exercises/add`, exercise)
-      .then((res) => console.log(res.data));
+    // ${process.env.REACT_APP_URL}
+    axios.post(`/exercises/add`, exercise).then((res) => console.log(res.data));
 
     window.location = "/";
   };
 
   // Getting users from database
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_URL}/users`).then((res) => {
+    axios.get(`/users`).then((res) => {
       // console.log(res.data.allusers);
       const allusers = res.data.allusers.map((user) => user.username);
       setUsers(["Select user name", ...allusers]);

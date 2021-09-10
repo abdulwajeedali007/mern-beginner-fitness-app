@@ -11,9 +11,7 @@ function Index() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const userone = { username: user };
-    axios
-      .post(`${process.env.REACT_APP_URL}/users/add`, userone)
-      .then((res) => console.log(res.data));
+    axios.post(`/users/add`, userone).then((res) => console.log(res.data));
     setUser("");
   };
 
