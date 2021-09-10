@@ -1,0 +1,37 @@
+.footer {
+  background: #050872;
+  padding: 60px 0px 0px;
+  color: #fff;
+
+  p {
+    font-size: 14px;
+  }
+  h3 {
+    font-weight: 700;
+  }
+  .social__media {
+    a {
+      color: #fff;
+      font-size: 20px;
+      padding: 0px 10px;
+    }
+  }
+  .content {
+    p {
+      span {
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    .footer-para {
+      text-align: center;
+    }
+    .social__media {
+      text-align: center;
+    }
+  }
+}
