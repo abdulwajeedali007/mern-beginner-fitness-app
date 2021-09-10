@@ -39,7 +39,7 @@ function index() {
                 <span>
                   <FaEnvelope />
                 </span>
-                abdulwajeedali@007
+                abdulwajeedali007@gmail.com
               </p>
             </div>
           </div>
